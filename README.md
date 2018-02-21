@@ -1,4 +1,4 @@
-# `Design-Editor` — the simplied editor images using fabric js
+# `Design-Editor` — the simplied editor for images using fabric js
 
 This project is an application for uploading images, adding text, scaling, and saving the project for further use.
 
