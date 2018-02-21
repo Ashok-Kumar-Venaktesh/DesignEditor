@@ -108,6 +108,7 @@ directive('ngCanvas', function(db_operation){
 
           $scope.create = function() {
             if ($scope.project_name != undefined){
+              $scope.display_message_long('Creating your project. Please wait ....');
               // Make the edit project buttons visible
               $scope.project_loaded  = true;
               var body = {
