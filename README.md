@@ -1,2 +1,0 @@
-# DesignEditor
-FreshPrints online assignment
