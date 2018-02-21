@@ -1,10 +1,14 @@
 {
-    "name": "angular-seed",
+    "name": "DesignEditor",
     "private": true,
     "version": "0.0.0",
-    "description": "A starter project for AngularJS",
-    "repository": "https://github.com/angular/angular-seed",
+    "description": "A FreshPrints Assignment",
+    "repository": "https://github.com/Ashok-Kumar-Venaktesh/DesignEditor.git",
     "license": "MIT",
+    "engines": {
+      "node": "8.9.1"
+    },
+    "main": "index.js",
     "dependencies": {
         "cool-ascii-faces": "1.3.4",
         "ejs": "^2.5.6",
