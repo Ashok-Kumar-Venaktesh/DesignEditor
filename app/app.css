@@ -67,7 +67,7 @@
 }
 
 .outer-box{
-  padding: 20px;
+  padding: 10px;
   border-style: ridge;
   cursor: pointer;
 }
@@ -82,7 +82,7 @@
 }
 
 .row{
-    width: 1500px;
+    width: 1200px;
 }
 
 .text-center{

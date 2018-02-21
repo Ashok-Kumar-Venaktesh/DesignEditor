@@ -6,8 +6,18 @@ var db = require('./db_operations.js')
 
 var bodyParser = require('body-parser');
 
-app.use(bodyParser.json()); // for parsing application/json
-app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
+app.use(bodyParser.json({limit: '50mb', extended: true})); // for parsing application/json
+// app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
+// app.use(bodyParser.urlencoded({limit: '50mb', extended: true}));
+//app.use(bodyParser.json({limit:1024102420, type:'application/json'}));
+// parse various different custom JSON types as JSON
+//app.use(bodyParser.json({ type: 'application/*+json' }))
+
+// parse some custom thing into a Buffer
+// app.use(bodyParser.raw({ type: 'application/vnd.custom-type' }))
+//
+// // parse an HTML body into a string
+// app.use(bodyParser.text({ type: 'text/html' }))
 
 app.set('port', (process.env.PORT || 5000));
 

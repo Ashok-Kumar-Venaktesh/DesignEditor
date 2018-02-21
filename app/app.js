@@ -52,7 +52,7 @@ directive('ngCanvas', function(db_operation){
     return {
         restrict: 'EA',
         scope: false,
-        template: '<canvas id="canvas" width="1500px" height="600px"></canvas>',
+        template: '<canvas id="canvas" width="1200px" height="600px"></canvas>',
         controller: function ($scope, $timeout, db_operation) {
 
           $scope.baseURI = 'http://localhost:5000';

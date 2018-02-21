@@ -1,9 +1,9 @@
 var mysql = require('mysql');
 
-var DB_NAME    = 'ProjectDetails',
-    HOST       = 'localhost',
-    USER       = 'root',
-    PASSWORD   = '',
+var DB_NAME    = 'sql11222416',
+    HOST       = 'sql11.freemysqlhosting.net',
+    USER       = 'sql11222416',
+    PASSWORD   = 'Gy73bUQNQq',
     TABLE_NAME = 'projects'
 
 
@@ -139,3 +139,4 @@ module.exports = {
 
 
 //create_table(conn())
+//conn()
