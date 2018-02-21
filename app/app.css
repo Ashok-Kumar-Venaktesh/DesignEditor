@@ -44,7 +44,8 @@
 }
 
 .btn-style{
-  background-color: #4CAF50; /* Green */
+  /*background-color: #4CAF50;*/
+  /*background-color: rgba(0,0,0,0.87);*/
   font-family:verdana;
   border: none;
   color: white;
@@ -61,6 +62,17 @@
   background-color: #4CAF50;
 }
 
+.red{
+  background-color: #F44336;
+}
+
+.cyan{
+  background-color: #00BCD4;
+}
+
+.grey{
+  background-color: #9E9E9E;
+}
 .outer-container{
     margin:20px;
     align-items: center;

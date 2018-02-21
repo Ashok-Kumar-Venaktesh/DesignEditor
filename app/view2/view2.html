@@ -4,7 +4,7 @@
         <strong>Upload Image</strong>
       </div>
       <label class="myFile">
-        <button class="btn-style">+ Photo</button>&nbsp;
+        <button class="btn-style grey">+ Photo</button>&nbsp;
         <input type="file" id="file" />
       </label>
     </div>
@@ -22,21 +22,21 @@
       </div>
       <select class="" ng-model="selected_project" ng-options="opt.value as opt.label for opt in all_projects">
       </select>
-      <button class="btn-style " id="click" ng-click="load()">load</button>
-      <button class="btn-style " id="delete" ng-click="delete()">delete project</button>
+      <button class="btn-style green" id="click" ng-click="load()">load</button>
+      <button class="btn-style red" id="delete" ng-click="delete()">delete project</button>
     </div>
 
     <div class="outer-box left-align" ng-show="project_loaded">
       <div>
         <strong>Edit Project</strong>
       </div>
-      <button class="btn-style left-align" id="click" ng-click="add()">Add text</button>
-      <button class="btn-style left-align" id="click" ng-click="undo()">undo</button>
-      <button class="btn-style left-align" id="click" ng-click="redo()">redo</button>
-      <button class="btn-style left-align" id="click" ng-click="backward()">backward</button>
-      <button class="btn-style left-align" id="click" ng-click="forward()">forward</button>
-      <button class="btn-style left-align" id="click" ng-click="save()">save</button>
-      <button class="btn-style left-align" id="click" ng-click="remove_object()">remove</button>
+      <button class="btn-style left-align cyan" id="click" ng-click="add()">Add text</button>
+      <button class="btn-style left-align cyan" id="click" ng-click="undo()">undo</button>
+      <button class="btn-style left-align cyan" id="click" ng-click="redo()">redo</button>
+      <button class="btn-style left-align cyan" id="click" ng-click="backward()">backward</button>
+      <button class="btn-style left-align cyan" id="click" ng-click="forward()">forward</button>
+      <button class="btn-style left-align cyan" id="click" ng-click="save()">save</button>
+      <button class="btn-style left-align cyan" id="click" ng-click="remove_object()">remove</button>
     </div>
 </div>
 <div ng-show="isDisplay" class="border-style left-align success-message  row text-center">

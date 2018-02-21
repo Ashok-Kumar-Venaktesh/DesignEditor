@@ -55,7 +55,7 @@ directive('ngCanvas', function(db_operation){
         template: '<canvas id="canvas" width="1200px" height="600px"></canvas>',
         controller: function ($scope, $timeout, db_operation) {
           // to test in the heroku app
-          $scope.baseURI = 'https://sleepy-hamlet-79903.herokuapp.com';
+          scope.baseURI = 'https://sleepy-hamlet-79903.herokuapp.com';
           // to test in the localhost MySql
           //$scope.baseURI = 'http://localhost:5000';
           $scope.history = [];

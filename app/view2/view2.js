@@ -9,36 +9,6 @@ app1.config(['$routeProvider', function($routeProvider) {
   });
 }])
 
-// app1.service('db', ['$scope', '$http',function($scope, $http) {
-//   this.get_all_rows = function(){
-//       $http({
-//            method : "GET",
-//            url : $scope.$baseURI + "/get_all_rows"
-//        }).then(function mySuccess(response) {
-//           console.log(response);
-//        }, function myError(response) {
-//            console.log(response);
-//        });
-//   }
-// }]);
-
-// app1.service('db_operation', function($http) {
-//   this.get_all_rows = function(baseURI){
-//     console.log(baseURI + '/get_all_rows');
-//     $http({
-//          method : "GET",
-//          url : baseURI + '/get_all_rows'
-//      }).then(function mySuccess(response) {
-//         console.log("response --> ", response);
-//         return response
-//      }, function myError(response) {
-//          console.log(response);
-//          return response
-//      });
-//     }
-// });
-
-
 app1.controller('View2Ctrl',function($scope) {
   $scope.project_loaded  = false;
   $scope.message         = 'success';
