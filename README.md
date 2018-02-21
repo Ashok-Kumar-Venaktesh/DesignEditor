@@ -1,10 +1,10 @@
-# `Design-Editor` — the seed for AngularJS apps
+# `Design-Editor` — the simplied editor images using fabric js
 
 This project is an application for uploading images, adding text, scaling, and saving the project for further use.
 
 ```
 git clone https://github.com/Ashok-Kumar-Venaktesh/DesignEditor.git
-cd angular-seed
+cd DesignEditor
 ```
 
 ### Install Dependencies
