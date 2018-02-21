@@ -1,0 +1,96 @@
+/* app css stylesheet */
+.wrapper{
+    background: #e3e3e3;
+}
+
+.menu {
+  list-style: none;
+  border-bottom: 0.1em solid black;
+  margin-bottom: 2em;
+  padding: 0 0 0.5em;
+}
+
+.menu:before {
+  content: "[";
+}
+
+.menu:after {
+  content: "]";
+}
+
+.menu > li {
+  display: inline;
+}
+
+.menu > li + li:before {
+  content: "|";
+  padding-right: 0.3em;
+}
+
+.myFile {
+  position: relative;
+  overflow: hidden;
+  float: left;
+  clear: left;
+}
+.myFile input[type="file"] {
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  opacity: 0;
+  font-size: 30px;
+  filter: alpha(opacity=0);
+}
+
+.btn-style{
+  background-color: #4CAF50; /* Green */
+  font-family:verdana;
+  border: none;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 1px;
+  cursor: pointer;
+}
+
+.green{
+  background-color: #4CAF50;
+}
+
+.outer-container{
+    margin:20px;
+    align-items: center;
+}
+
+.outer-box{
+  padding: 20px;
+  border-style: ridge;
+  cursor: pointer;
+}
+
+.left-align{
+  float: left;
+}
+
+.border-style{
+  border: 1px solid black;
+  margin: 2%;
+}
+
+.row{
+    width: 1500px;
+}
+
+.text-center{
+  text-align: center;
+}
+.success-message{
+  border: 1px solid green;
+  font-style: italic;
+  font-weight: bold;
+  font-variant: inherit;
+}
