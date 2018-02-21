@@ -54,14 +54,15 @@ directive('ngCanvas', function(db_operation){
         scope: false,
         template: '<canvas id="canvas" width="1200px" height="600px"></canvas>',
         controller: function ($scope, $timeout, db_operation) {
-
+          // to test in the heroku app
           $scope.baseURI = 'https://sleepy-hamlet-79903.herokuapp.com';
+          // to test in the localhost MySql
+          //$scope.baseURI = 'http://localhost:5000';
           $scope.history = [];
 
           $scope.get_options = function(){
             db_operation.get_all_rows($scope.baseURI).
               then(function mySuccess(response) {
-                 console.log("response --> ", response);
                  var data = response.data;
                  for(let i=0; i<data.length; i++){
                    var obj = {}
@@ -69,7 +70,6 @@ directive('ngCanvas', function(db_operation){
                    obj['label'] = data[i].ProjectName;
                    $scope.all_projects.push(obj);
                  }
-                 console.log('all_projects', $scope.all_projects);
               }, function myError(response) {
                 console.log(response);
               });
@@ -128,6 +128,7 @@ directive('ngCanvas', function(db_operation){
 
           $scope.save = function(){
             if ($scope.selected_project != undefined || $scope.project_name != undefined){
+              $scope.display_message('Saving your project. Please wait ....');
               var body = {
                 "project_name": ($scope.selected_project != undefined)?$scope.selected_project:$scope.project_name,
                 "canvas_data": JSON.stringify($scope.canvas)
@@ -135,10 +136,7 @@ directive('ngCanvas', function(db_operation){
               db_operation.update($scope.baseURI, body).
                 then(function mySuccess(response) {
                   $scope.display_message('Saved project successfully');
-                  console.log("update response --> ", response);
                 }, function myError(response) {
-                    console.log(response);
-                    console.log(response.statusText);
                     $scope.display_message('Save Failed!! \n Reason: ' + response.statusText );
                 });
             }
@@ -151,7 +149,6 @@ directive('ngCanvas', function(db_operation){
             if ($scope.selected_project != undefined){
               db_operation.delete($scope.baseURI, $scope.selected_project).
                 then(function mySuccess(response) {
-                  console.log("delete response --> ", response);
                   $scope.canvas.clear();
                   $scope.project_name = '';
                   $scope.display_message('Deleted project successfully');
@@ -170,7 +167,6 @@ directive('ngCanvas', function(db_operation){
                   );
                   $scope.renderAll();
                 }, function myError(response) {
-                  console.log(response);
                   $scope.display_message('Unable to delte Failed!! \n Reason: ' + response.statusText);
                 });
             }
@@ -190,8 +186,7 @@ directive('ngCanvas', function(db_operation){
           }
 
           $scope.upload = function(){
-            console.log("uploading image",$scope.project_name);
-            console.log("uploading image", $scope.imageSrc);
+            $scope.display_message('Uploading your project.  Please wait ...');
             if ($scope.selected_project != undefined || $scope.project_name != undefined){
               fabric.Image.fromURL($scope.imageSrc, function(img) {
                  var oImg = img.set({
@@ -216,6 +211,7 @@ directive('ngCanvas', function(db_operation){
           $scope.load = function(){
             if ($scope.selected_project != undefined){
               $scope.project_loaded = true;
+              $scope.display_message('Loading your project.  Please wait ...');
               $scope.project_name   = $scope.selected_project;
               db_operation.load($scope.baseURI, $scope.selected_project).
                 then(function mySuccess(response) {
@@ -227,7 +223,6 @@ directive('ngCanvas', function(db_operation){
                     });
                   }
                 }, function myError(response) {
-                    console.log(response);
                     $scope.display_message('Loading project Failed!! \n Reason: ' + response.statusText);
                 });
             }
