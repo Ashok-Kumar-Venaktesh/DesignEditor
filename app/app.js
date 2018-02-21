@@ -93,12 +93,17 @@ directive('ngCanvas', function(db_operation){
             $scope.canvas.renderAll();
           }
 
-          $scope.display_message = function(message){
-            $scope.message = message;
+          $scope.display_message_timeout = function(message){
+            $scope.message   = message;
             $scope.isDisplay = true;
             $timeout(function () {
               $scope.isDisplay = false;
             }, 2000);
+          }
+
+          $scope.display_message_long = function(message){
+            $scope.message = message;
+            $scope.isDisplay = true;
           }
 
           $scope.create = function() {
@@ -112,11 +117,11 @@ directive('ngCanvas', function(db_operation){
               db_operation.insert($scope.baseURI, body).
                 then(function mySuccess(response) {
                   $scope.canvas.clear();
-                  $scope.display_message('Create project successfully');
+                  $scope.display_message_timeout('Create project successfully');
                   console.log("insert response --> ", response);
                 }, function myError(response) {
                   console.log(response);
-                  $scope.display_message('Creating project Failed!! \n Reason: ' + response.statusText);
+                  $scope.display_message_timeout('Creating project Failed!! \n Reason: ' + response.statusText);
                 });
             }
             else if ($scope.project_name == undefined){
@@ -128,16 +133,16 @@ directive('ngCanvas', function(db_operation){
 
           $scope.save = function(){
             if ($scope.selected_project != undefined || $scope.project_name != undefined){
-              $scope.display_message('Saving your project. Please wait ....');
+              $scope.display_message_long('Saving your project. Please wait ....');
               var body = {
                 "project_name": ($scope.selected_project != undefined)?$scope.selected_project:$scope.project_name,
                 "canvas_data": JSON.stringify($scope.canvas)
               }
               db_operation.update($scope.baseURI, body).
                 then(function mySuccess(response) {
-                  $scope.display_message('Saved project successfully');
+                  $scope.display_message_timeout('Saved project successfully');
                 }, function myError(response) {
-                    $scope.display_message('Save Failed!! \n Reason: ' + response.statusText );
+                    $scope.display_message_timeout('Save Failed!! \n Reason: ' + response.statusText );
                 });
             }
             else if($scope.selected_project == undefined &&  $scope.project_name == undefined) {
@@ -151,7 +156,7 @@ directive('ngCanvas', function(db_operation){
                 then(function mySuccess(response) {
                   $scope.canvas.clear();
                   $scope.project_name = '';
-                  $scope.display_message('Deleted project successfully');
+                  $scope.display_message_timeout('Deleted project successfully');
                   $scope.all_projects = [];
                   $scope.get_options();
                   $scope.canvas.add(
@@ -167,7 +172,7 @@ directive('ngCanvas', function(db_operation){
                   );
                   $scope.renderAll();
                 }, function myError(response) {
-                  $scope.display_message('Unable to delte Failed!! \n Reason: ' + response.statusText);
+                  $scope.display_message_timeout('Unable to delte Failed!! \n Reason: ' + response.statusText);
                 });
             }
             else if($scope.selected_project == undefined) {
@@ -186,7 +191,7 @@ directive('ngCanvas', function(db_operation){
           }
 
           $scope.upload = function(){
-            $scope.display_message('Uploading your project.  Please wait ...');
+            $scope.display_message_long('Uploading your project.  Please wait ...');
             if ($scope.selected_project != undefined || $scope.project_name != undefined){
               fabric.Image.fromURL($scope.imageSrc, function(img) {
                  var oImg = img.set({
@@ -211,19 +216,19 @@ directive('ngCanvas', function(db_operation){
           $scope.load = function(){
             if ($scope.selected_project != undefined){
               $scope.project_loaded = true;
-              $scope.display_message('Loading your project.  Please wait ...');
+              $scope.display_message_long('Loading your project.  Please wait ...');
               $scope.project_name   = $scope.selected_project;
               db_operation.load($scope.baseURI, $scope.selected_project).
                 then(function mySuccess(response) {
                   if($scope.selected_project != undefined){
                     $scope.canvas.clear();
                     $scope.canvas.loadFromJSON(response.data[0]["CanvasData"], function(o, object) {
-                      $scope.display_message('Loaded project successfully');
+                      $scope.display_message_timeout('Loaded project successfully');
                       $scope.canvas.renderAll();
                     });
                   }
                 }, function myError(response) {
-                    $scope.display_message('Loading project Failed!! \n Reason: ' + response.statusText);
+                    $scope.display_message_timeout('Loading project Failed!! \n Reason: ' + response.statusText);
                 });
             }
             else if($scope.selected_project == undefined) {
