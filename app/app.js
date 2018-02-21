@@ -55,7 +55,7 @@ directive('ngCanvas', function(db_operation){
         template: '<canvas id="canvas" width="1200px" height="600px"></canvas>',
         controller: function ($scope, $timeout, db_operation) {
 
-          $scope.baseURI = 'http://localhost:5000';
+          $scope.baseURI = 'https://sleepy-hamlet-79903.herokuapp.com/';
           $scope.history = [];
 
           $scope.get_options = function(){
